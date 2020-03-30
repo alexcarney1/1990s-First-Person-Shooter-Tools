@@ -21,7 +21,7 @@ public class CameraBobbing : MonoBehaviour
     private float origCamYPos;
     private float timer = 0;
     //smaller is More dramatic bobbing at peak velocity. Higher number is less dramatic bobbing at peak velocity.
-    public float bobbingDistDivisor = 70f;
+    public float bobbingDistDivisor = 60f;
     void Start()
     {
         origCamYPos = transform.localPosition.y;
