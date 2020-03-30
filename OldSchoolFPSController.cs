@@ -64,13 +64,11 @@ public class OldSchoolFPSController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W))
         {
-            print(speed);
             speed = baseSpeed + (baseSpeed * strafeRunMultiplier);
             return;
         }
         else
         {
-            print(speed);
             speed = baseSpeed;
             return;
         }
