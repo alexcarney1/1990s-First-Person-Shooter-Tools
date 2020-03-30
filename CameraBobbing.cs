@@ -20,7 +20,7 @@ public class CameraBobbing : MonoBehaviour
     public Rigidbody rb;
     private float origCamYPos;
     private float timer = 0;
-    public float bobbingSpeed = 2f; //overdrive the speed of bobbing cycle.
+    public float bobbingSpeedOverdrive = 2f; //overdrive parameter. 1 is no overdrive.
     //smaller is More dramatic bobbing at peak velocity. Higher number is less dramatic bobbing at peak velocity.
     public float bobbingDistDivisor = 60f;
     void Start()
@@ -35,7 +35,7 @@ public class CameraBobbing : MonoBehaviour
         {
             //print(rb.velocity.magnitude);
             timer += Time.deltaTime * rb.velocity.magnitude;
-            transform.localPosition = new Vector3(transform.localPosition.x, origCamYPos + Mathf.Sin(timer*bobbingSpeed)
+            transform.localPosition = new Vector3(transform.localPosition.x, origCamYPos + Mathf.Sin(timer * bobbingSpeedOverdrive)
                 * (rb.velocity.magnitude / bobbingDistDivisor), transform.localPosition.z);
         }
         //player idle. Return camera to default position.
