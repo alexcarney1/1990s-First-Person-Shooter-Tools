@@ -41,7 +41,6 @@ public class CameraBobbing : MonoBehaviour
         else
         {
             timer = 0;
-            //place camera back to its original position. Lerping this will look smoother, but I prefer instant return for this.
             transform.localPosition = new Vector3(transform.localPosition.x, origCamYPos, transform.localPosition.z);
         }
 
