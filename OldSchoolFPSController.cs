@@ -70,7 +70,6 @@ public class OldSchoolFPSController : MonoBehaviour
         else
         {
             speed = baseSpeed;
-            return;
         }
     }
 }
