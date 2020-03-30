@@ -20,7 +20,7 @@ public class CameraBobbing : MonoBehaviour
     public Rigidbody rb;
     private float origCamYPos;
     private float timer = 0;
-    public float bobbingSpeed = 2f;
+    public float bobbingSpeed = 2f; //overdrive the speed of bobbing cycle.
     //smaller is More dramatic bobbing at peak velocity. Higher number is less dramatic bobbing at peak velocity.
     public float bobbingDistDivisor = 60f;
     void Start()
