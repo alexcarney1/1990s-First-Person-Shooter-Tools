@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /*
@@ -20,6 +20,7 @@ public class CameraBobbing : MonoBehaviour
     public Rigidbody rb;
     private float origCamYPos;
     private float timer = 0;
+    public float bobbingSpeed = 2f;
     //smaller is More dramatic bobbing at peak velocity. Higher number is less dramatic bobbing at peak velocity.
     public float bobbingDistDivisor = 60f;
     void Start()
@@ -30,12 +31,12 @@ public class CameraBobbing : MonoBehaviour
     void FixedUpdate()
     {
         //player moving.The faster you move, the more dramatic the bobbing in speed and distance.
-        if (Mathf.Abs(rb.velocity.magnitude) > 0f) 
+        if (Mathf.Abs(rb.velocity.magnitude) > 0f)
         {
             //print(rb.velocity.magnitude);
             timer += Time.deltaTime * rb.velocity.magnitude;
-            transform.localPosition = new Vector3(transform.localPosition.x, origCamYPos + Mathf.Sin(timer)
-                * (rb.velocity.magnitude/bobbingDistDivisor), transform.localPosition.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, origCamYPos + Mathf.Sin(timer*bobbingSpeed)
+                * (rb.velocity.magnitude / bobbingDistDivisor), transform.localPosition.z);
         }
         //player idle. Return camera to default position.
         else
