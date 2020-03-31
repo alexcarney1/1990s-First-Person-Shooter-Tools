@@ -4,7 +4,7 @@ using UnityEngine;
 /*
 * Author: Alex R. Carney
 * Adds gun sway commonly found in 1990s FPS games. Moves centered gun sprites in a U pattern.
-* SwayAmountOverdrive controls how darastic the sway is. When set to 1, the sway matches 
+* SwayAmountOverdrive controls how dramatic the sway is. When set to 1, the sway matches 
 * current rigidbody velocity. This effect is meant to be used on centered gun sprites
 * such as those typically found in the 2.5D FPS games from the 1990s.
 * 
