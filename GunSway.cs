@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /*
@@ -17,7 +17,11 @@ public class GunSway : MonoBehaviour
     public Rigidbody rb;
     private float timer = 0;
     public float swayAmountOverdrive = 2f; //Extra overdrive on size of arc. 1 is no extra overdrive.
-    
+    private float defPosY;
+    private void Start()
+    {
+        defPosY = transform.localPosition.y;
+    }
     void FixedUpdate()
     {
         //player moving
@@ -26,23 +30,23 @@ public class GunSway : MonoBehaviour
             timer += Time.deltaTime * rb.velocity.magnitude;
             float scale = 2 / (3 - Mathf.Cos(2 * timer)) * swayAmountOverdrive;
             float x = scale * Mathf.Cos(timer);
-            float y = scale * Mathf.Cos(2 *timer) / 2;
+            float y = scale * Mathf.Cos(2 * timer) / 2;
 
             x *= 1 * rb.velocity.magnitude;
-            y *= 1* rb.velocity.magnitude;
+            y *= 1 * rb.velocity.magnitude;
 
-            transform.localPosition = new Vector3(x,y, transform.localPosition.z);     
+            transform.localPosition = new Vector3(x, defPosY + y, transform.localPosition.z);
         }
         //idle
         else
-        {ResetToCenter();}
+        { ResetToCenter(); }
     }
 
     //Resets on idle. Can also be called to reset when player shoots in a companion script if desired.
     public void ResetToCenter()
     {
         timer = 0;
-        transform.localPosition = new Vector3(0, 0, 0);
+        transform.localPosition = new Vector3(0, defPosY, 0);
     }
 
 }
