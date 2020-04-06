@@ -4,8 +4,8 @@ using UnityEngine;
 /*
 * Author: Alex R. Carney
 * 
-* Simple script to set target resolution and framerate both
-* in the Unity inspector and on build. Place in scene on 
+* Simple script to set build target resolution and both 
+* application and build framerate. Place in scene on 
 * a Game Manager object or similiar object.
 * 
 * Make sure to match the target resolution you set below in your Unity
