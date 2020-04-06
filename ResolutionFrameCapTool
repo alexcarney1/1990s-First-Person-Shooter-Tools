@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+/*
+* Author: Alex R. Carney
+* 
+* Simple script to set target resolution and framerate both
+* in the Unity inspector and on build. Place in scene on 
+* a Game Manager object or similiar object.
+* 
+* Make sure to match the target resolution you set below in your Unity
+* Game View window.
+*/
+public class ResolutionFrameCapTool : MonoBehaviour
+{
+    public int frameRate = 30;
+    public int resolutionWidth = 640;
+    public int resolutionHeight =400;
+    void Start()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = frameRate; 
+        Screen.SetResolution(resolutionWidth, resolutionHeight,false,frameRate);
+    }
+}
